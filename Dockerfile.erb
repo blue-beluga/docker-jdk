@@ -3,10 +3,11 @@
 FROM <%= ENV.fetch('FROM') %>
 MAINTAINER The Blue Beluga <admin@bluebeluga.io>
 
-LABEL name="jdk"
-LABEL description="Alpine Linux with Oracle JDK"
-LABEL version="<%= ENV.fetch('JDK_VERSION') %>"
-LABEL git_revision="<%= ENV.fetch('GIT_REVISION') %>"
+LABEL vendor="The Blue Beluga Company"
+LABEL io.bluebeluga.jdk.description="Oracle JDK"
+LABEL io.bluebeluga.jdk.version="<%= ENV.fetch('TAG') %>"
+LABEL io.bluebeluga.jdk.git-revision="<%= ENV.fetch('GIT_REVISION') %>"
+LABEL io.bluebeluga.jdk.release-date="<%= Time.now.strftime('%B %d, %Y %H:%M') %>"
 
 ENV JDK_VERSION <%= ENV.fetch('JDK_VERSION') %>
 ENV JDK_UPDATE <%= ENV.fetch('JDK_UPDATE') %>
